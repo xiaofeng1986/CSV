@@ -86,7 +86,7 @@ public class superCSVTesting {
     
     public static void main(String[] args) throws Exception {
     	//System.out.print("Hello world");
-    	//writeWithCsvListWriter();
+    	writeWithCsvListWriter();
     	readWithCsvListReader();
     }
 }
