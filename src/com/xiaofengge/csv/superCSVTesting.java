@@ -24,8 +24,10 @@ import org.supercsv.prefs.CsvPreference;
 
 
 public class superCSVTesting {
-   private static final String CSV_FILENAME_OSX = "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
-   private static final String CSV_FILENAME_WINDOWS = "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv";
+  
+   private static final String CSV_FILENAME = "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
+//   OSX path "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
+//   Windows path "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv"
     
    private static CellProcessor[] getProcessors(){
 	   //test
@@ -111,7 +113,7 @@ public class superCSVTesting {
     	ICsvBeanWriter beanWriter = null;
     	try {
     		beanWriter = new CsvBeanWriter(
-    				new FileWriter(CSV_FILENAME_WINDOWS)
+    				new FileWriter(CSV_FILENAME)
     				,CsvPreference.STANDARD_PREFERENCE);
     		final String[] header = new String[]{"STATUS","USERID","USERNAME","FIRSTNAME","LASTNAME"
     				,"MI","GENDER","EMAIL","MANAGER","HR","DEPARTMENT","JOBCODE","DIVISION"
@@ -160,7 +162,7 @@ private static void writeWithCsvBeanWriterWithBean(List<CustomerBean> customersL
     	ICsvBeanWriter beanWriter = null;
     	try {
     		beanWriter = new CsvBeanWriter(
-    				new FileWriter(CSV_FILENAME_WINDOWS)
+    				new FileWriter(CSV_FILENAME)
     				,CsvPreference.STANDARD_PREFERENCE);
     		final String[] header = new String[]{"STATUS","USERID","USERNAME","FIRSTNAME","LASTNAME"
     				,"MI","GENDER","EMAIL","MANAGER","HR","DEPARTMENT","JOBCODE","DIVISION"
@@ -209,7 +211,7 @@ private static void writeWithCsvBeanWriterWithBean(List<CustomerBean> customersL
     	
     	ICsvBeanReader beanReader = null;
     	try {
-    		beanReader = new CsvBeanReader(new FileReader(CSV_FILENAME_WINDOWS)
+    		beanReader = new CsvBeanReader(new FileReader(CSV_FILENAME)
     				,CsvPreference.STANDARD_PREFERENCE);
     		
     		final String[] header = beanReader.getHeader(false);
@@ -235,7 +237,7 @@ private static void updateWithCsvBeanReader() throws Exception {
     	ICsvBeanReader beanReader = null;
     	List<CustomerBean> customers = new ArrayList<CustomerBean>();
     	try {
-    		beanReader = new CsvBeanReader(new FileReader(CSV_FILENAME_WINDOWS)
+    		beanReader = new CsvBeanReader(new FileReader(CSV_FILENAME)
     				,CsvPreference.STANDARD_PREFERENCE);
     		
     		final String[] header = beanReader.getHeader(false);
@@ -291,7 +293,7 @@ private static void updateWithCsvBeanReader() throws Exception {
     	
     	ICsvListReader listReader = null;
     	try {
-    		listReader = new CsvListReader(new FileReader(CSV_FILENAME_WINDOWS),CsvPreference.STANDARD_PREFERENCE);
+    		listReader = new CsvListReader(new FileReader(CSV_FILENAME),CsvPreference.STANDARD_PREFERENCE);
     		
     		listReader.getHeader(false);
     		final CellProcessor[] processors = getProcessors();
