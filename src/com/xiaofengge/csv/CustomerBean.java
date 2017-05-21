@@ -1,3 +1,4 @@
+package com.xiaofengge.csv;
 
 public class CustomerBean {
 
