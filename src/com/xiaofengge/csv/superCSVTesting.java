@@ -25,7 +25,8 @@ import org.supercsv.prefs.CsvPreference;
 
 public class superCSVTesting {
   
-   private static final String CSV_FILENAME = "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
+   private static final String CSV_FILENAME = "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv";
+   private static final long NUM = 1000000;
 //   OSX path "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
 //   Windows path "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv"
     
@@ -85,7 +86,7 @@ public class superCSVTesting {
 	   return processors;
    }
     
-    private static void writeWithCsvBeanWriter(int number) throws Exception {
+    private static void writeWithCsvBeanWriter(long number) throws Exception {
     	
 //    	List<CustomerBean> customers = Arrays.asList(john);
 //    	System.out.println(customers.size());
@@ -318,7 +319,7 @@ private static void updateWithCsvBeanReader() throws Exception {
 //    	readWithCsvListReader();
     	
 
-    	writeWithCsvBeanWriter(100000);
+    	writeWithCsvBeanWriter(NUM);
 //    	readWithCsvBeanReader();
 //    	System.out.println("=====================updated===============");
 //    	updateWithCsvBeanReader();
