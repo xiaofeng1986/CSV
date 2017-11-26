@@ -1,5 +1,5 @@
 # java-learning
 
-SuperCSV
-ThinkInJava
-JavaDesignPattern
+* SuperCSV
+* ThinkInJava
+* JavaDesignPattern
