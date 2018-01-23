@@ -26,7 +26,7 @@ import org.supercsv.prefs.CsvPreference;
 public class superCSVTesting {
   
    private static final String CSV_FILENAME = "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv";
-   private static final long NUM = 1000000;
+   private static final long NUM = 10;
 //   OSX path "/Users/mac/Downloads/writeWithCsvBeanWriter.csv";
 //   Windows path "C:\\Users\\I336852\\Downloads\\writeWithCsvBeanWriter.csv"
     
@@ -35,6 +35,7 @@ public class superCSVTesting {
 	   final CellProcessor[] processors = new CellProcessor[] {
 			   new NotNull(),
 			   new UniqueHashCode(),
+	           new NotNull(),
 	           new NotNull(),
 	           new NotNull(),
 	           new NotNull(),
@@ -95,21 +96,21 @@ public class superCSVTesting {
 //    	customers.add(john);
 //    	customers.add(john2);
     	
+    	System.out.println("=====================generate CSV  start===============");
+    	
     	List<CustomerBean> customers = new ArrayList<CustomerBean>();    	
     	for ( int i = 0 ; i < number ; i ++) {
     		String no = Integer.toString(i);
-    		CustomerBean user = new CustomerBean("active","1705SuperCSV"+no,"1705SuperCSV"+no
-    				,"1705xiaofeng","ge","mi","F","xiaofeng.ge@sap.com","NO_MANAGER","NO_HR"
-    				,"dep01","job01","DI01","LO01","US/Alaska","2017-01-01","empid01","title01"
-    				,"phone01","fax01","addr1","addr2","NY","NY","123456","USA","review","2017-01-01"
+    		CustomerBean user = new CustomerBean("active","1802SuperCSV"+no,"1802SuperCSV"+no
+    				,"1802xiaofeng","ge","mi","F","xiaofeng.ge@sap.com","NO_MANAGER","NO_HR"
+    				,"dep01","job01","DI01","LO01","US/Alaska","01/01/2017","empid01","title01"
+    				,"phone01","fax01","addr1","addr2","NY","NY","123456","Italy","review","01/01/2017"
     				,"CF1_001","CF2_001","CF3_001","CF4_001","CF5_001","CF6_001","CF7_001","CF8_001"
     				,"CF9_001","CF10_001","CF11_001","CF12_001","CF13_001","CF14_001","CF15_001"
-    				,"NO_MANAGER","en_US","xf_admin","NO_MANAGER","NO_MANAGER");
+    				,"NO_MANAGER","en_US","NO_MANAGER","NO_MANAGER","NO_MANAGER","01/01/2017");
     		customers.add(user);
     	}
    
-    	
-    	
     	
     	ICsvBeanWriter beanWriter = null;
     	try {
@@ -122,7 +123,7 @@ public class superCSVTesting {
     				,"ADDR2","CITY","STATE","ZIP","COUNTRY","REVIEW_FREQ","LAST_REVIEW_DATE"
     				,"CUSTOM01","CUSTOM02","CUSTOM03","CUSTOM04","CUSTOM05","CUSTOM06","CUSTOM07"
     				,"CUSTOM08","CUSTOM09","CUSTOM10","CUSTOM11","CUSTOM12","CUSTOM13","CUSTOM14"
-    				,"CUSTOM15","MATRIX_MANAGER","DEFAULT_LOCALE","PROXY","CUSTOM_MANAGER","SECOND_MANAGER"};
+    				,"CUSTOM15","MATRIX_MANAGER","DEFAULT_LOCALE","PROXY","CUSTOM_MANAGER","SECOND_MANAGER","COMPANYEXITDATE"};
     		final String[] headername = new String[] {"STATUS","USERID","Username","First Name","Last Name" 
     		,"Middle Name","Gender","Email","Manager","Human Resource","Department","Job Code","Division"
     		,"Location","Time Zone","Hire Date","Employee Id","Title","Business Phone","Business Fax"
@@ -131,7 +132,7 @@ public class superCSVTesting {
     		,"Customizable Field 5","Customizable Field 6","Customizable Field 7","Customizable Field 8"
     		,"Customizable Field 9","Customizable Field 10","Customizable Field 11","Customizable Field 12"
     		,"Customizable Field 13","Customizable Field 14","Customizable Field 15","Matrix Manager"
-    		,"Default Locale","Proxy","Custom Manager","Second Manager"};
+    		,"Default Locale","Proxy","Custom Manager","Second Manager","Company Exit Date"};
     		final CellProcessor[] processors = getProcessors();
     	
     		beanWriter.writeHeader(header);
@@ -144,7 +145,7 @@ public class superCSVTesting {
     				, "last_review_date", "custom01", "custom02", "custom03", "custom04", "custom05"
     				, "custom06", "custom07", "custom08", "custom09", "custom10", "custom11"
     				, "custom12", "custom13", "custom14", "custom15", "matrix_manager"
-    				, "default_locale", "proxy", "custom_manager", "second_manager"};
+    				, "default_locale", "proxy", "custom_manager", "second_manager","companyExitDate"};
     		
     		for (final CustomerBean customer : customers) {
     			beanWriter.write(customer, headerLowercase, processors);
@@ -155,6 +156,8 @@ public class superCSVTesting {
     			beanWriter.close();
     		}
     	}
+    	
+    	System.out.println("=====================generate CSV end===============");
     	
     }
     
@@ -171,7 +174,7 @@ private static void writeWithCsvBeanWriterWithBean(List<CustomerBean> customersL
     				,"ADDR2","CITY","STATE","ZIP","COUNTRY","REVIEW_FREQ","LAST_REVIEW_DATE"
     				,"CUSTOM01","CUSTOM02","CUSTOM03","CUSTOM04","CUSTOM05","CUSTOM06","CUSTOM07"
     				,"CUSTOM08","CUSTOM09","CUSTOM10","CUSTOM11","CUSTOM12","CUSTOM13","CUSTOM14"
-    				,"CUSTOM15","MATRIX_MANAGER","DEFAULT_LOCALE","PROXY","CUSTOM_MANAGER","SECOND_MANAGER"};
+    				,"CUSTOM15","MATRIX_MANAGER","DEFAULT_LOCALE","PROXY","CUSTOM_MANAGER","SECOND_MANAGER","COMPANYEXITDATE"};
     		final String[] headername = new String[] {"STATUS","USERID","Username","First Name","Last Name" 
     		,"Middle Name","Gender","Email","Manager","Human Resource","Department","Job Code","Division"
     		,"Location","Time Zone","Hire Date","Employee Id","Title","Business Phone","Business Fax"
@@ -180,7 +183,7 @@ private static void writeWithCsvBeanWriterWithBean(List<CustomerBean> customersL
     		,"Customizable Field 5","Customizable Field 6","Customizable Field 7","Customizable Field 8"
     		,"Customizable Field 9","Customizable Field 10","Customizable Field 11","Customizable Field 12"
     		,"Customizable Field 13","Customizable Field 14","Customizable Field 15","Matrix Manager"
-    		,"Default Locale","Proxy","Custom Manager","Second Manager"};
+    		,"Default Locale","Proxy","Custom Manager","Second Manager","Company Exit Date"};
     		final CellProcessor[] processors = getProcessors();
     	
     		beanWriter.writeHeader(header);
@@ -193,7 +196,7 @@ private static void writeWithCsvBeanWriterWithBean(List<CustomerBean> customersL
     				, "last_review_date", "custom01", "custom02", "custom03", "custom04", "custom05"
     				, "custom06", "custom07", "custom08", "custom09", "custom10", "custom11"
     				, "custom12", "custom13", "custom14", "custom15", "matrix_manager"
-    				, "default_locale", "proxy", "custom_manager", "second_manager"};
+    				, "default_locale", "proxy", "custom_manager", "second_manager","companyExitDate"};
     		
     		for (final CustomerBean customer : customersList) {
     			beanWriter.write(customer, headerLowercase, processors);

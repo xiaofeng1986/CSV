@@ -51,6 +51,7 @@ public class CustomerBean {
 	private String proxy;
 	private String custom_manager;
 	private String second_manager;
+	private String companyExitDate;
 	
 	public CustomerBean(){
 	}
@@ -67,7 +68,7 @@ public class CustomerBean {
 			, final String custom07, final String custom08, final String custom09, final String custom10
 			, final String custom11, final String custom12, final String custom13, final String custom14
 			, final String custom15, final String matrix_manager, final String default_locale
-			,final String proxy, final String custom_manager, final String second_manager) {
+			,final String proxy, final String custom_manager, final String second_manager, final String companyExitDate) {
 		this.status = status;
 		this.userid = userid;
 		this.username = username;
@@ -116,6 +117,7 @@ public class CustomerBean {
 		this.proxy = proxy;
 		this.custom_manager = custom_manager;
 		this.second_manager = second_manager;
+		this.companyExitDate = companyExitDate;
 	}
 	
 	public String getStatus() {
@@ -505,6 +507,14 @@ public class CustomerBean {
 	
 	
 	
+	public String getCompanyExitDate() {
+		return companyExitDate;
+	}
+
+	public void setCompanyExitDate(String companyExitDate) {
+		this.companyExitDate = companyExitDate;
+	}
+
 	public String toString() {
 		return String.format("CustomerBean [status=%s, userid=%s, username=%s, firstname=%s"
 				+ ", lastname=%s, mi=%s, gender=%s, email=%s, manager=%s, hr=%s, department=%s"
@@ -514,13 +524,13 @@ public class CustomerBean {
 				+ ", custom02=%s, custom03=%s, custom04=%s, custom05=%s, custom06=%s"
 				+ ", custom07=%s, custom08=%s, custom09=%s, custom10=%s, custom11=%s"
 				+ ", custom12=%s, custom13=%s, custom14=%s, custom15=%s, matrix_manager=%s"
-				+ ", default_locale=%s, proxy=%s, custom_manager=%s, second_manager=%s]", 
+				+ ", default_locale=%s, proxy=%s, custom_manager=%s, second_manager=%s, companyExitDate=%s]", 
 				status, userid, username, firstname, lastname, mi, gender, email, manager, hr
 				, department, jobcode, division, location, timezone, hiredate, empid, title
 				, biz_phone, fax, addr1, addr2, city, state, zip, country, review_freq
 				, last_review_date, custom01, custom02, custom03, custom04, custom05, custom06
 				, custom07, custom08, custom09, custom10, custom11, custom12, custom13, custom14
-				, custom15, matrix_manager, default_locale, proxy, custom_manager, second_manager);
+				, custom15, matrix_manager, default_locale, proxy, custom_manager, second_manager,companyExitDate);
 	}
 
 }
